@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Full Page slider</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Products.</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="banner">
+        <div class="imgBx">
+            <img src="images/img1.jpg" class="active">
+            <img src="images/img2.jpg">
+            <img src="images/img3.jpg">
+            <img src="images/img4.jpg">
+        </div>
+
+        <div class="contentBx">
+            <div class="active">
+                <h2>Slide Text One</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum ipsum eius quam veritatis facilis possimus delectus.</p>
+                <a href="#">Details</a>
+            </div>
+            <div>
+                <h2>Slide Text Second</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum ipsum eius quam veritatis facilis possimus delectus. Lorem ipsum dolor sit amet.</p>
+                <a href="#">Details</a>
+            </div>
+            <div>
+                <h2>Slide Text Third</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum ipsum eius quam veritatis facilis possimus delectus, ab ad libero illum consequuntur sed debitis!</p>
+                <a href="#">Details</a>
+            </div>
+            <div>
+                <h2>Slide Text Fourth</h2>
+                <p> Esse laborum ipsum eius quam veritatis facilis possimus delectus, ab ad libero illum consequuntur sed debitis!</p>
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <ul class="controls">
+            <li onclick="prevSlide();prevSlideText();"></li>
+            <li onclick="nextSlide();nextSlideText();"></li>
+        </ul>
+    </section>
+
+    <!-- javascript -->
+    <script type="text/javascript">
+        const imgBx = document.querySelector('.imgBx');
+        var slides = imgBx.getElementsByTagName('img');
+        var i=0;
+        slides.lenght = 4;
+        console.log(slides.lenght);
+
+
+        function nextSlide(){
+            console.log(i);
+            slides[i].classList.remove('active');
+            i = ( i + 1 ) % slides.lenght ;
+            slides[i].classList.add('active');
+        }
+
+        function prevSlide(){
+            console.log(i);
+            slides[i].classList.remove('active');
+            i = ( i - 1 + slides.lenght ) % slides.lenght;
+            slides[i].classList.add('active');
+        }
+        /*text Box*/
+        const contentBx = document.querySelector('.contentBx');
+        const slidesText = contentBx.getElementsByTagName('div');
+        var j=0;
+        slidesText.lenght = 4;
+        console.log(slidesText.lenght);
+
+        function nextSlideText(){
+            console.log(j);
+            slidesText[j].classList.remove('active');
+            j = ( j + 1 ) % slidesText.lenght;
+            slidesText[j].classList.add('active');
+        }
+
+        function prevSlideText(){
+            console.log(j);
+            slidesText[j].classList.remove('active');
+            j = ( j - 1 + slidesText.lenght ) % slidesText.lenght;
+            slidesText[j].classList.add('active');
+        }
+    </script>
+    
+</body>
+</html>
